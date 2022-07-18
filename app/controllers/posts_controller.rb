@@ -9,7 +9,9 @@ class PostsController < ApplicationController
 
   def create
     @post= Post.new(post_params)
-    if  @post.save
+    if params[:back]
+      render :new
+    elsif  @post.save
       redirect_to posts_path, notice: 'コメントを投稿しました！'
     else
       render :new
@@ -25,6 +27,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
     if @post.update
       redirect_to posts_path, notice: '投稿を更新しました！'
     else

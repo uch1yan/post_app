@@ -1,6 +1,6 @@
 <h1>この内容で投稿する。</h1>
 
-<%= form_with(model: @post, local: true) do |form| %>
+<%= form_with(model: @post, local: true, url: posts_path ) do |form| %>
   <%= form.hidden_field :content %>
 
   <p>Content: <%= @post.content %></p>

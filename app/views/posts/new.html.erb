@@ -1,23 +1,2 @@
 <h1>投稿ページ</h1>
-
-<%= form_with(model: @post, local: true) do |form| %>
-  <% if @post.errors.any? %>
-    <div id="error">
-      <h2><%= @post.errors.count %>件のエラーがあります。</h2>
-        <ul>
-          <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-          <% end %>
-        </ul>
-    </div>
-  <% end %>
-
-  <div class="content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-
-   <%= form.submit "投稿" %>
-<% end %>
-
-  <%= link_to "投稿一覧画面へ戻る", posts_path %>
+<%= render 'form' %>
