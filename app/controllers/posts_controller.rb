@@ -37,6 +37,13 @@ class PostsController < ApplicationController
     render :new if @post.invalid?
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      redirect_to posts_path, notice: '投稿を削除しました！'
+    end
+  end
+
   private
 
   def post_params
