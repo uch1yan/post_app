@@ -24,6 +24,21 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def update
+    if @post.update
+      redirect_to posts_path, notice: '投稿を更新しました！'
+    else
+      render :edit
+    end
+  end
+
+  def confirm
+    @post = Post.new(post_params)
+    render :new if @post.invalid?
+  end
+
+  private
+
   def post_params
     params.require(:post).permit(:content)
   end
