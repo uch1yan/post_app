@@ -1,12 +1,13 @@
-<h1>この内容で投稿する。</h1>
+<%= render 'header' %>
 
-<%= form_with(model: @post, local: true, url: posts_path ) do |form| %>
-  <%= form.hidden_field :content %>
+  <h1>この内容で投稿する。</h1>
 
-  <p>Content: <%= @post.content %></p>
-
-  <%= form.submit 'confirmed' %>
-  <%= form.submit 'back', name: 'back' %>
-<% end %>
+  <%= form_with(model: @post, local: true, url: posts_path ) do |form| %>
+    <%= form.hidden_field :content %>
+    <p>Content: <%= @post.content %></p>
+    <button type="submit" class="btn btn-primary">confirmed</button>
+    <%= form.submit 'back', name: 'back' %>
+  <% end %>
 
   <%= link_to '戻る', :back %>
+<%= render 'footer' %>

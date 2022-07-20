@@ -1,4 +1,5 @@
 <%= form_with(model: @post, local: true, url: choose_new_or_edit ) do |form| %>
+
   <% if @post.errors.any? %>
     <div id="error">
       <h2><%= @post.errors.count %>件のエラーがあります。</h2>
@@ -15,7 +16,9 @@
     <%= form.text_field :content %>
   </div>
 
-   <%= form.submit "投稿" %>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary">投稿</button>
+  </div>
 <% end %>
-
+  <br>
   <%= link_to "投稿一覧画面へ戻る", posts_path %>

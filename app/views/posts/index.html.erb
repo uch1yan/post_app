@@ -1,17 +1,29 @@
-<h1>投稿一覧ページ</h1>
-<table>
-  <tr>
-    <th>Content</th>
-  </tr>
+<%= render 'header' %>
+
+  <div class="post_list">
+    <br>
+    <h1>投稿一覧ページ</h1>
+    <br>
+    <p><%= notice %></p>
+  </div>
+
+  <table>
+    <tr>
+      <th>Content</th>
+    </tr>
 
   <% @posts.each do |post| %>
     <tr>
       <td><%= post.content %></td>
-      <td><%= link_to '詳細を確認する', post_path(post.id) %></td>
-      <td><%= link_to '投稿を編集する', edit_post_path(post.id) %></td>
-      <td><%= link_to '投稿を削除する', post_path(post.id), method: :delete %></td>
+      <td><button type="button" class="btn btn-outline-primary"><%= link_to '詳細を確認する', post_path(post.id) %></button></td>
+      <td><button type="button" class="btn btn-outline-warning"><%= link_to '投稿を編集する', edit_post_path(post.id) %></button></td>
+      <td><button type="button" class="btn btn-outline-danger"><%= link_to '投稿を削除する', post, method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
     </tr>
   <% end %>
-</table>
-<br>
-<%= link_to '投稿画面へ', new_post_path %>
+
+  </table>
+
+  <br>
+  <p class="btn-post"><%= link_to '投稿画面へ', new_post_path %></p>
+
+<%= render 'footer' %>

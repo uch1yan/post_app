@@ -1,5 +1,9 @@
-<h1>詳細確認ページ</h1>
-<p>Content: <%= @post.content %></p>
+<%= render 'header' %>
 
-<br>
-<%= link_to '投稿一覧画面へ戻る', posts_path %>
+  <h1>詳細確認ページ</h1>
+  <p>Content: <%= @post.content %></p>
+
+  <br>
+  <%= link_to '投稿一覧画面へ戻る', posts_path %>
+
+<%= render 'footer' %>
